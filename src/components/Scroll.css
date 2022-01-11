@@ -1,0 +1,8 @@
+.card-list {
+  overflow-y: scroll;
+  height: 80vh;
+  border-top: 16px solid lavender;
+  border-bottom: 16px solid lavender;
+  border-left: 16px solid lavender;
+  margin-bottom: 60px;
+}

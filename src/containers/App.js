@@ -1,8 +1,10 @@
-import React, { Fragment } from "react"
+import React from "react"
 
 import CardList from "../components/CardList"
 import SearchField from "../components/SearchField"
 import Scroll from "../components/Scroll"
+import ErrorBoundary from "../components/ErrorBoundary"
+
 import "./App.css"
 
 export default class App extends React.Component {
@@ -18,11 +20,13 @@ export default class App extends React.Component {
     const { robots, searchField } = this.state
     let filteredRobots = robots.filter(robot => robot.name.toLowerCase().includes(searchField.toLowerCase()))
     return (
-      <div className="tc">
+      <div className="mw5 mw8-ns center pa3 ph5-ns tc">
         <h1 className="page-title">RoboFriends</h1>
         <SearchField onSearchChange={this.onSearchChange} />
         <Scroll>
-          <CardList robots={filteredRobots} />
+          <ErrorBoundary>
+            <CardList robots={filteredRobots} />
+          </ErrorBoundary>
         </Scroll>
       </div>
     )
